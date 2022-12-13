@@ -1,0 +1,19 @@
+{
+  "name": "boolean-array-merge",
+  "version": "1.0.0",
+  "description": "Simple function to merge multiple fixed sized boolean arrays.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rgk/boolean-array-merge.git"
+  },
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "author": "rgk",
+  "homepage": "https://github.com/rgk/boolean-array-merge",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
