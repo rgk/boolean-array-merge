@@ -14,6 +14,6 @@
   "homepage": "https://github.com/rgk/boolean-array-merge",
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   }
 }
