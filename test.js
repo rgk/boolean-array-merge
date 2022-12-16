@@ -4,11 +4,11 @@ import BAM from 'index.js';
 
 
 assert.deepEqual(
-  BAM([[ true, false, true ], [ false, true, false ]],
+  BAM([[ true, false, true ], [ false, true, false ]]),
   [ true, true, true ]
 );
 
 assert.deepEqual(
-  BAM([[ true, true, true ], [ false, false, false ]],
+  BAM([[ true, true, true ], [ false, false, false ]]),
   [ true, true, true ]
 );
