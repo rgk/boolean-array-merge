@@ -1,12 +1,13 @@
-export default function BAM(arrays, dominateValue = true, result = []) {
+export default function BAM(arrays, dominateValue = true, result = arrays.pop(), keys = result.keys()) {
   const current = arrays.pop();
 
-  for (let i = 0, spot = result[i]; i < current.length; i++, spot = result[i]) {
-    if (spot === dominateValue || spot === current[i]) continue;
-    result[i] = current[i];
+  for (let i = 0; i < keys.length; i++) {
+    if (current[keys[i]] !== dominateValue) continue;
+    const key = keys.splice(keys[i], 1);
+    result[key] = current[key];
   }
 
-  if (arrays.length) BAM(arrays, dominateValue, result);
+  if (keys.length) BAM(arrays, dominateValue, result, keys);
 
   return result;
 }
