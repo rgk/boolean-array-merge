@@ -3,7 +3,7 @@ export default function BAM(arrays, dominateValue = true, result = arrays.pop(),
 
   for (let i = 0; i < keys.length; i++) {
     if (current[keys[i]] !== dominateValue) continue;
-    const key = keys.splice(keys[i], 1);
+    const key = keys.splice(i, 1);
     result[key] = current[key];
   }
 
