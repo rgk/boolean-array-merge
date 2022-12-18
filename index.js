@@ -1,6 +1,6 @@
 export default function BAM(arrays, dominateValue = true) {
   const result = arrays.pop();
-  const keys = [ ...result.keys() ].filter(value => value !== dominateValue);
+  const keys = [ ...result.keys() ].filter(key => result[key] !== dominateValue);
   for (let i = 0; i < arrays.length; i++) {
     for (let j = 0, current = arrays.pop(); j < keys.length; j++) {
       if (current[keys[j]] !== dominateValue) continue;
