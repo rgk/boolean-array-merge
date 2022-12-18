@@ -1,5 +1,5 @@
 export default function BAM(arrays, dominateValue = true) {
-  const result = array.pop();
+  const result = arrays.pop();
   const keys = result.keys().filter(value => value !== dominateValue);
   for (let i = 0; i < arrays.length; i++) {
     for (let j = 0, current = arrays.pop(); j < keys.length; j++) {
