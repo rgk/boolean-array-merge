@@ -39,3 +39,12 @@ assert.deepEqual(
   ),
   [ false, false, false ]
 );
+
+assert.deepEqual(
+  BAM(
+    [
+      [ 0, 1, 2 ], [ 2, 1, 0 ]
+    ]
+  ),
+  [ true, true, true ]
+);
