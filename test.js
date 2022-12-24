@@ -55,5 +55,14 @@ assert.deepEqual(
       [ '0', '1', '2' ], [ '0', '1', '2' ]
     ]
   ),
+  [ true, true, true ]
+);
+
+assert.deepEqual(
+  BAM(
+    [
+      [ '', '', 'true' ], [ '', 'true', '' ]
+    ]
+  ),
   [ false, true, true ]
 );
