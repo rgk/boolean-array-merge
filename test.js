@@ -52,8 +52,8 @@ assert.deepEqual(
 assert.deepEqual(
   BAM(
     [
-      [ '0', '1', '2' ], [ '2', '1', '0' ]
+      [ '0', '1', '2' ], [ '0', '1', '2' ]
     ]
   ),
-  [ true, true, true ]
+  [ false, true, true ]
 );
