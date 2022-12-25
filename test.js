@@ -66,3 +66,13 @@ assert.deepEqual(
   ),
   [ false, true, true ]
 );
+
+
+assert.deepEqual(
+  BAM(
+    [
+      [ [], {} ], [ {}, [] ]
+    ]
+  ),
+  [ false, true ]
+);
