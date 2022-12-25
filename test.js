@@ -74,5 +74,5 @@ assert.deepEqual(
       [ [], {} ], [ {}, [] ]
     ]
   ),
-  [ false, true ]
+  [ true, true ]
 );
