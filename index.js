@@ -5,7 +5,7 @@ export default function BAM(arrays, mergeValue = true) {
   // Use pop to get starting set, make sure the values are boolean.
   const result = arrays.pop().map(value => !!value);
 
-  // Produce an array which contains the keys which should be set.
+  // Convert result to an array which contains the keys that will be checked.
   const keys = [ ...result.keys() ].filter(key => !!result[key] !== mergeValue);
 
   // Loop through all arrays unless nothing is left.
@@ -14,7 +14,7 @@ export default function BAM(arrays, mergeValue = true) {
     for (let j = 0, current = arrays[i]; j < keys.length; j++) {
       // If current value being checked does not set a change.
       if (!!current[keys[j]] !== mergeValue) continue;
-      // Remove key so it is no longer checked.
+      // Remove key so it is no longer checked and reduce the count by 1 for the splice removal.
       const key = keys.splice(j--, 1)[0];
       // Set it and make sure its boolean.
       result[key] = !!current[key];
