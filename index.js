@@ -18,7 +18,7 @@ export default function BAM(arrays, mergeValue = true) {
       result[key] = !!arrays[i][key];
       // Remove key so it is no longer checked.
       return false;
-    }
+    ));
   }
 
   return result;
