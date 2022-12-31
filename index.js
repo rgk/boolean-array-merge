@@ -13,7 +13,7 @@ export default function BAM(arrays, mergeValue = true) {
     // Only go through values which need to be checked.
     keys = keys.filter(key => {
       // If current value being checked does not set a change.
-      if (arrays[i][key] !== mergeValue) return true;
+      if (!!arrays[i][key] !== mergeValue) return true;
       // Set it and make sure its boolean.
       result[key] = !!arrays[i][key];
       // Remove key so it is no longer checked.
