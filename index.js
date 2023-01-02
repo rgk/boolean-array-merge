@@ -1,4 +1,4 @@
-export default function BAM(arrays, mergeValue = true) {
+export default function BAM(arrays, mergeValue = true, ignore = []) {
   // Make sure merge value is always boolean.
   mergeValue = !!mergeValue;
 
@@ -6,7 +6,7 @@ export default function BAM(arrays, mergeValue = true) {
   const result = arrays.pop().map(value => !!value);
 
   // Convert result to an array which contains the keys that will be checked.
-  let keys = [ ...result.keys() ].filter(key => result[key] !== mergeValue);
+  let keys = [ ...result.keys() ].filter(key => result[key] !== mergeValue && !ignore[key]);
 
   // Loop through all arrays unless nothing is left.
   for (let i = 0; i < arrays.length && keys.length; i++) {
