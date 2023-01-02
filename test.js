@@ -80,8 +80,10 @@ assert.deepEqual(
 assert.deepEqual(
   BAM(
     [
-      [ true, false ], [ false, true ], false, [ false, true ]
-    ]
+      [ true, false ], [ false, true ],
+    ],
+    false,
+    [ false, true ]
   ),
   [ false, true ]
 );
