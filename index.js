@@ -11,7 +11,7 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
   // Loop through the keys so arrays don't need to be altered, fastest option.
   for (let i = keys.length, key = keys.at(-1); i--; key = keys[i]) {
     // Loop through the arrays last to first.
-    for (let j = arrays.length, value = !!arrays.at(-1)[key]; j--; value = arrays[j][key]) {
+    for (let j = arrays.length, value = !!arrays.at(-1)[key]; j--; value = !!arrays[j][key]) {
       // If current value being checked does not set a change, skip.
       if (value !== mergeValue) continue;
 
