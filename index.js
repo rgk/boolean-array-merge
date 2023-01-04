@@ -8,17 +8,19 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
   // Convert result to an array which contains the keys that will be checked.
   let keys = [ ...result.keys() ].filter(key => result[key] !== mergeValue && !ignore[key]);
 
-  // Loop through all arrays unless nothing is left.
-  for (let i = 0; i < arrays.length && keys.length; i++) {
-    // Only go through values which need to be checked.
-    keys = keys.filter(key => {
-      // If current value being checked does not set a change.
-      if (!!arrays[i][key] !== mergeValue) return true;
+  // Loop through the keys so arrays don't need to be altered, fastest option.
+  for (let i = keys.length, key = keys.at(-1); i--; key = keys[i]) {
+    // Loop through the arrays last to first.
+    for (let j = arrays.length, value = !!arrays.at(-1)[key]; j--; value = arrays[j][key]) {
+      // If current value being checked does not set a change, skip.
+      if (value !== mergeValue) continue;
+
       // Set it and make sure its boolean.
-      result[key] = !!arrays[i][key];
-      // Remove key so it is no longer checked.
-      return false;
-    });
+      result[key] = value;
+
+      // Move to the next key if it has been set.
+      break;
+    }
   }
 
   return result;
