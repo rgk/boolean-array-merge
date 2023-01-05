@@ -3,7 +3,7 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
   mergeValue = !!mergeValue;
 
   // Use pop to get starting set, make sure the values are boolean.
-  const result = arrays.at(-1).map(value => !!value);
+  const result = arrays[0].map(value => !!value);
 
   // Convert result to an array which contains the keys that will be checked.
   const keys = [ ...result.keys() ].filter(key => result[key] !== mergeValue && !ignore[key]);
