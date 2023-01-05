@@ -9,9 +9,9 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
   const keys = [ ...result.keys() ].filter(key => result[key] !== mergeValue && !ignore[key]);
 
   // Loop through the keys so arrays don't need to be altered, fastest option.
-  for (let i = keys.length, key = keys[--i]; i--; key = keys[i]) {
+  for (let i = keys.length, key = keys[--i]; ~(--i); key = keys[i]) {
     // Loop through the arrays last to first.
-    for (let j = arrays.length, value = !!arrays[--j][key]; j--; value = !!arrays[j][key]) {
+    for (let j = arrays.length, value = !!arrays[--j][key]; ~(--j); value = !!arrays[j][key]) {
       // If current value being checked does not set a change, skip.
       if (value !== mergeValue) continue;
 
