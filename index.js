@@ -27,11 +27,16 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
 }
 
 // Binary effort.
-function BAMbinary(arrays, length) {
-  const uint8 = new Uint8Array(arrays.length);
+function BAMbinary(arrays, length = Uint8Array) {
+  const uint8 = new length(arrays.length);
   
-  const binary = uint8.map((data, index) => arrays[index].reduce((total, value, index) => !!value ( index + 1) + total); 
+  const binary = uint8.map(
+    (data, index) => arrays[index].reduce(
+      (total, value, index) => !!value ( index + 1 ) + total
+    )
+  );
+  
+  const result = binary.reduce((total, value) => total | value);
 
-  let result = 0;
   return result;
 }
