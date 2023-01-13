@@ -32,7 +32,7 @@ function BAMbinary(arrays, and = false) {
   
   const binary = uint8.map(
     (data, index) => arrays[index].reduce(
-      (total, value, index) => !!value ( index + 1 ) + total
+      (total, value, index) => !!value * Math.pow(2, index) + total
     )
   );
 
