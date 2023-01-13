@@ -27,7 +27,7 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
 }
 
 // Binary effort.
-function BAMbinary(arrays, ) {
+function BAMbinary(arrays, and = false) {
   const uint8 = new Uint8Array(arrays.length);
   
   const binary = uint8.map(
@@ -36,7 +36,7 @@ function BAMbinary(arrays, ) {
     )
   );
 
-  const result = binary.reduce((total, value) => total | value);
+  const result = and ? binary.reduce((total, value) => total & value) : (total, value) => total | value);
 
   return result.toString(2).split('').map(value => !!value);
 }
