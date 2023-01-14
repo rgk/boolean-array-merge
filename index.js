@@ -29,15 +29,13 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
 // Binary effort.
 function BAMbinary(arrays, or = true) {
   const uint8 = new Uint8Array(arrays.length);
-  
+
   let length = 0;
 
-  arrays.forEach((value, index) => {
-    if (length < value.length) length = value.length;
+  arrays.forEach((list, index) => {
+    if (length < list.length) length = list.length;
 
-    uint8[index] = value.reverse().reduce(
-      (total, value, index) => !!value * Math.pow(2, index) + total
-    )
+    uint8[index] = list.reverse().reduce((total, value, i) => !!value * Math.pow(2, i) + total);
   });
 
   const result = or ? uint8.reduce((total, value) => total | value) : uint8.reduce((total, value) => total & value);
