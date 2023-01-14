@@ -32,18 +32,15 @@ function BAMbinary(arrays, or = true) {
   
   let length = 0;
 
-  const binary = uint8.map(
-    (data, index) => {
-      const current = arrays[index];
-      if (length < current.length) length = current.length;
+  arrays.forEach((value, index) => {
+    if (length < value.length) length = value.length;
 
-      return arrays[index].reverse().reduce(
-        (total, value, index) => !!value * Math.pow(2, index) + total
-      )
-    }
-  );
+    uint8[index] = value.reverse().reduce(
+      (total, value, index) => !!value * Math.pow(2, index) + total
+    )
+  });
 
-  const result = or ? binary.reduce((total, value) => total | value) : binary.reduce((total, value) => total & value);
+  const result = or ? uint8.reduce((total, value) => total | value) : uint8.reduce((total, value) => total & value);
 
   const output = result.toString(2).split('').map(value => !!parseInt(value));
 
