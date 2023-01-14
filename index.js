@@ -35,21 +35,21 @@ function BAMbinary(arrays, or = true) {
 
   if (or) {
     data.calc = value => data.total | value;
-    data.complete = Math.pow(length, 2);
+    data.complete = Math.pow(length, 2) - 1;
+    data.total = 0;
   } else {
     data.calc = value => data.total & value;
     data.complete = 0;
+    data.total = Math.pow(length, 2) - 1;
   }
 
   for (let i = 0; i < arrays.length; i++) {
     if (data.total = data.calc(
-      arrays[i].reverse().reduce((total, value, i) => !!value * Math.pow(2, i) + total)
+      arrays[i].reverse().reduce((total, value, index) => !!value * Math.pow(2, index) + total)
     ) === data.complete) break;
   }
 
-  for (let i = 0; i < data.length; i++) {
-    data.output[i] = !!(data.total & (1 << i));
-  }
+  for (let i = 0; i < data.length; i++) data.output[i] = !!(data.total & (1 << i));
 
   return data.output;
 }
