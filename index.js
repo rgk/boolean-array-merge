@@ -26,7 +26,7 @@ export default function BAM(arrays, mergeValue = true, ignore = []) {
   return result;
 }
 
-// Binary effort.
+// Binary effort, input array length can't be bigger then 4294967295.
 function BAMbinary(arrays, or = true) {
   const data = {
     length: arrays[0].length,
@@ -47,7 +47,6 @@ function BAMbinary(arrays, or = true) {
     ) === data.complete) break;
   }
 
-  
   for (let i = 0; i < data.length; i++) {
     data.output[i] = !!(data.total & (1 << i));
   }
