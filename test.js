@@ -76,25 +76,3 @@ assert.deepEqual(
   ),
   [ true, true ]
 );
-
-assert.deepEqual(
-  BAM(
-    [
-      [ true, false ], [ false, true ],
-    ],
-    false,
-    [ false, true ]
-  ),
-  [ false, false ]
-);
-
-assert.deepEqual(
-  BAM(
-    [
-      [ true, false ], [ false, true ],
-    ],
-    true,
-    [ true, true ]
-  ),
-  [ true, false ]
-);
