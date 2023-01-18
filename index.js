@@ -4,20 +4,22 @@ export default function BAM(arrays, or = true) {
     output: []
   }
 
+  const set = { min: 0, max: Math.pow(2, data.length) - 1 };
+
   if (or) {
     data.calc = value => data.total | value;
-    data.complete = Math.pow(data.length, 2) - 1;
-    data.total = 0;
+    data.complete = set.max;
+    data.total = set.min;
   } else {
     data.calc = value => data.total & value;
-    data.complete = 0;
-    data.total = Math.pow(data.length, 2) - 1;
+    data.complete = set.min;
+    data.total = set.max;
   }
 
   for (let i = 0; i < arrays.length; i++) {
-    if (data.total = data.calc(
-      arrays[i].reverse().reduce((total, value, index) => !!value * Math.pow(2, index) + total)
-    ) === data.complete) break;
+    if ((data.total = data.calc(
+      arrays[i].reduce((total, value, index) => !!value * Math.pow(2, index) + total, 0)
+    )) === data.complete) break;
   }
 
   for (let i = 0; i < data.length; i++) data.output[i] = !!(data.total & (1 << i));
