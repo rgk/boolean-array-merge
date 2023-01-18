@@ -24,6 +24,15 @@ assert.deepEqual(
 assert.deepEqual(
   BAM(
     [
+      [ false, true, false ], [ false, false, true ]
+    ]
+  ),
+  [ false, true, true ]
+);
+
+assert.deepEqual(
+  BAM(
+    [
       [ true, false, false ], [ false, false, true ], [ false, false, false ]
     ]
   ),
