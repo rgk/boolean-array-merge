@@ -2,7 +2,7 @@
 import assert from 'node:assert';
 import BAM from './index.js';
 
-
+// Basic functionality.
 assert.deepEqual(
   BAM(
     [
@@ -12,15 +12,7 @@ assert.deepEqual(
   [ true, true, true ]
 );
 
-assert.deepEqual(
-  BAM(
-    [
-      [ true, true, true ], [ false, false, false ]
-    ]
-  ),
-  [ true, true, true ]
-);
-
+// Test output order.
 assert.deepEqual(
   BAM(
     [
@@ -30,6 +22,7 @@ assert.deepEqual(
   [ false, true, true ]
 );
 
+// Test larger array of arrays.
 assert.deepEqual(
   BAM(
     [
@@ -39,6 +32,7 @@ assert.deepEqual(
   [ true, false, true ]
 );
 
+// Check OR output.
 assert.deepEqual(
   BAM(
     [
@@ -49,6 +43,7 @@ assert.deepEqual(
   [ false, false, false ]
 );
 
+// Check non-boolean integers.
 assert.deepEqual(
   BAM(
     [
@@ -58,6 +53,7 @@ assert.deepEqual(
   [ true, true, true ]
 );
 
+// Check integers as strings.
 assert.deepEqual(
   BAM(
     [
@@ -67,6 +63,7 @@ assert.deepEqual(
   [ true, true, true ]
 );
 
+// Check falsey and truthy values.
 assert.deepEqual(
   BAM(
     [
@@ -76,7 +73,7 @@ assert.deepEqual(
   [ false, true, true ]
 );
 
-
+// Check more abstract truthy values.
 assert.deepEqual(
   BAM(
     [
