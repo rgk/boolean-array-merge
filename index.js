@@ -10,10 +10,12 @@ export default function BAM(arrays, or = true) {
 
   // Set approrate calculations depending if its OR or AND.
   if (or) {
+    // OR means only one bit needs to be 1, thus it will prioritize true.
     data.calc = value => data.total | value;
     data.complete = set.max;
     data.total = set.min;
   } else {
+    // AND means both bits need to be 1, thus it will prioritize false.
     data.calc = value => data.total & value;
     data.complete = set.min;
     data.total = set.max;
