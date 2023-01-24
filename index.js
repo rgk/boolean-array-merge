@@ -24,7 +24,7 @@ export default function BAM(arrays, or = true) {
   // Loop through the arrays and merge, if the value is 'complete' before all input merged, it will end.
   for (let i = 0; i < arrays.length; i++) {
     if ((data.total = data.calc(
-      // Turn the array into a integer to be merged.
+      // Calculate a integer based on the input array, treating index and value like binary. [ false, true ] == 2 == 0 1
       arrays[i].reduce((total, value, index) => !!value * Math.pow(2, index) + total, 0)
     )) === data.complete) break;
   }
