@@ -1,6 +1,6 @@
 
 import assert from 'node:assert';
-import BAM from './index.js';
+import { BAM } from './index.js';
 
 // Basic functionality.
 assert.deepEqual(
