@@ -1,13 +1,14 @@
 // Convert integers into arrays based on base 2.
-export function convert(data) {
-  for (let i = 0; i < data.length; i++) data.output[i] = !!(data.total & (1 << i));
+export function convert(total, length, output = []) {
+  for (let i = 0; i < length; i++) output[i] = !!(total & (1 << i));
+
+  return output;
 }
 
 // Binary array merge, array input can't have more then 32 values because of JavaScript limatation with bitwise operations.
 export function BAM(arrays, or = true) {
   const data = {
     length: arrays[0].length, // Length is calculated by the first array input.
-    output: []
   }
 
   // Min and max values for the 32 bit integers.
@@ -34,7 +35,5 @@ export function BAM(arrays, or = true) {
     )) === data.complete) break;
   }
 
-  convert(data);
-
-  return data.output;
+  return convert(data.total, data.length);
 }
