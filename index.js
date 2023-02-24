@@ -1,4 +1,4 @@
-// Convert integers into arrays based on base 2.
+// Convert integers into arrays based on base 2, binary.
 export function convert(total, length, output = []) {
   for (let i = 0; i < length; i++) output[i] = !!(total & (1 << i));
 
