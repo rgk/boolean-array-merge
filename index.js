@@ -8,7 +8,12 @@ export function convert(total, length, output = []) {
 // Binary array merge, array input can't have more then 32 values because of JavaScript limatation with bitwise operations.
 export function BAM(arrays, or = true) {
   const data = {
-    length: arrays[0].length, // Length is calculated by the first array input.
+    length: arrays.reduce(
+      (accumulator, currentValue) => {
+        if (accumulator < currentValue.length) return currentValue.length;
+        return accumulator;
+      },
+    0), // Length is the longest array in the data set.
   }
 
   // Min and max values for the 32 bit integers.
