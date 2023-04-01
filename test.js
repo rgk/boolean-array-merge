@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import { BAM } from './index.js';
 
 // Basic functionality.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ true, false, true ], [ false, true, false ]
@@ -13,7 +13,7 @@ assert.deepEqual(
 );
 
 // Test output order.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ false, true, false ], [ false, false, true ]
@@ -23,7 +23,7 @@ assert.deepEqual(
 );
 
 // Test larger array of arrays.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ true, false, false ], [ false, false, true ], [ false, false, false ]
@@ -33,7 +33,7 @@ assert.deepEqual(
 );
 
 // Check OR output.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ false, true, false ], [ true, false, true ]
@@ -44,7 +44,7 @@ assert.deepEqual(
 );
 
 // Check non-boolean integers.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ 0, 1, 2 ], [ 2, 1, 0 ]
@@ -54,7 +54,7 @@ assert.deepEqual(
 );
 
 // Check integers as strings.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ '0', '1', '2' ], [ '0', '1', '2' ]
@@ -64,7 +64,7 @@ assert.deepEqual(
 );
 
 // Check falsey and truthy values.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ '', '', 'true' ], [ '', 'true', '' ]
@@ -74,7 +74,7 @@ assert.deepEqual(
 );
 
 // Check more abstract truthy values.
-assert.deepEqual(
+assert.deepStrictEqual(
   BAM(
     [
       [ [], {} ], [ {}, [] ]
