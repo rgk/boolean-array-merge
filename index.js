@@ -6,7 +6,7 @@ export function convert(total, length, output = []) {
 }
 
 // Binary array merge, array input can't have more then 32 values because of JavaScript limatation with bitwise operations.
-export function BAM(arrays, or = true) {
+export function BAM(arrays = [], or = true) {
   const data = {
     length: arrays.reduce(
       (accumulator, currentValue) => {
