@@ -82,3 +82,10 @@ assert.deepStrictEqual(
   ),
   [ true, true ]
 );
+
+// Check if no value fails.
+assert.deepStrictEqual(
+  BAM(
+  ),
+  [ ]
+);
