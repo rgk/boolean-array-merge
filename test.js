@@ -83,6 +83,14 @@ assert.deepStrictEqual(
   [ true, true ]
 );
 
+// Make sure it only accepts arrays.
+assert.deepStrictEqual(
+  BAM(
+    {}
+  ),
+  false
+);
+
 // Check if no value fails.
 assert.deepStrictEqual(
   BAM(
