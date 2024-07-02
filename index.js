@@ -1,13 +1,26 @@
-// Convert integers into arrays based on base 2, binary.
+/**
+ * Converts an integer to an array representing its binary form.
+ * 
+ * @param {number} number - The integer to convert.
+ * @param {number} length - The length of the resulting binary array.
+ * @returns {Array<boolean>} An array of booleans representing the binary form of the number.
+ */
 export function convert(total, length, output = []) {
   for (let i = 0; i < length; i++) output[i] = !!(total & (1 << i));
 
   return output;
 }
 
-// Binary array merge, array input can't have more then 32 values because of JavaScript limatation with bitwise operations.
+/**
+ * Performs a bitwise merge on an array of boolean arrays using either OR or AND operation.
+ * Note: The input arrays cannot have more than 32 values due to JavaScript's limitation with bitwise operations.
+ * 
+ * @param {Array<Array<boolean>>} arrays - An array of boolean arrays to be merged.
+ * @param {boolean} or - Determines the type of bitwise operation to use. If true, uses OR; if false, uses AND.
+ * @returns {Array<boolean>} A boolean array representing the result of the bitwise merge operation.
+ */
 export function BAM(arrays = [], or = true) {
-  if (!Array.isArray(arrays)) return false;
+  if (!Array.isArray(arrays) || arrays.length === 0) return [];
 
   const data = {
     length: arrays.reduce(
