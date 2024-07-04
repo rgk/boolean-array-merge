@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/rgk/boolean-array-merge.git"
   },
+  "bugs": {
+    "url": "https://github.com/rgk/boolean-array-merge/issues"
+  },
   "scripts": {
     "test": "node ./test.js"
   },

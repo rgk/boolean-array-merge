@@ -88,7 +88,17 @@ assert.deepStrictEqual(
   BAM(
     {}
   ),
-  false
+  [ ]
+);
+
+// Make sure it only accepts arrays nested.
+assert.deepStrictEqual(
+  BAM(
+    [
+      [ true, false, true ], {}
+    ]
+  ),
+  [ ]
 );
 
 // Check if no value fails.

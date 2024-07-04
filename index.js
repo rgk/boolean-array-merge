@@ -20,7 +20,9 @@ export function convert(total, length, output = []) {
  * @returns {Array<boolean>} A boolean array representing the result of the bitwise merge operation.
  */
 export function BAM(arrays = [], or = true) {
-  if (!Array.isArray(arrays) || arrays.length === 0) return [];
+  if (!Array.isArray(arrays) || arrays.length === 0 || !arrays.every(arr => Array.isArray(arr))) {
+    return [];
+  }
 
   const data = {
     length: arrays.reduce(
