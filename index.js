@@ -1,31 +1,31 @@
 /**
  * Converts an integer to an array representing its binary form.
  * 
- * @param {number} number - The integer to convert.
+ * @param {number} total - The integer to convert.
  * @param {number} length - The length of the resulting binary array.
- * @returns {Array<boolean>} An array of booleans representing the binary form of the number.
+ * @returns {Array<boolean>} An array of booleans representing the binary form of the total.
  */
-export function convert(total, length, output = []) {
+export function convert(total, length = 32, output = []) {
   for (let i = 0; i < length; i++) output[i] = !!(total & (1 << i));
 
   return output;
 }
 
 /**
- * Performs a bitwise merge on an array of boolean arrays using either OR or AND operation.
- * Note: The input arrays cannot have more than 32 values due to JavaScript's limitation with bitwise operations.
+ * Performs a bitwise merge on a nested array input, each child being an array of booleans, using either OR or AND operation.
+ * Note: The nested arrays cannont have more then 32 boolean values due to JavaScript's limitation with bitwise operations.
  * 
- * @param {Array<Array<boolean>>} arrays - An array of boolean arrays to be merged.
- * @param {boolean} or - Determines the type of bitwise operation to use. If true, uses OR; if false, uses AND.
+ * @param {Array<Array<boolean>>} input - An array which holds arrays of the boolean values to be merged.
+ * @param {boolean} or - Determines bitwise operation to use. If true, OR; if false, AND.
  * @returns {Array<boolean>} A boolean array representing the result of the bitwise merge operation.
  */
-export function BAM(arrays = [], or = true) {
-  if (!Array.isArray(arrays) || arrays.length === 0 || !arrays.every(arr => Array.isArray(arr))) {
+export function BAM(input = [], or = true) {
+  if (!Array.isArray(input) || input.length === 0 || !input.every(arr => Array.isArray(arr))) {
     return [];
   }
 
   const data = {
-    length: arrays.reduce(
+    length: input.reduce(
       (accumulator, currentValue) => {
         if (accumulator < currentValue.length) return currentValue.length;
         return accumulator;
@@ -49,11 +49,11 @@ export function BAM(arrays = [], or = true) {
     data.total = set.max;
   }
 
-  // Loop through the arrays and merge, if the value is 'complete' before all input merged, it will end.
-  for (let i = 0; i < arrays.length; i++) {
+  // Loop through the input and merge, if the value is 'complete' before all input merged, it will end.
+  for (let i = 0; i < input.length; i++) {
     if ((data.total = data.calc(
       // Calculate a integer based on the input array, treating index and value like binary. [ false, true ] == 2 == 0 1
-      arrays[i].reduce((total, value, index) => !!value * Math.pow(2, index) + total, 0)
+      input[i].reduce((total, value, index) => !!value * Math.pow(2, index) + total, 0)
     )) === data.complete) break;
   }
 
